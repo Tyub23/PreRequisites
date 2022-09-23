@@ -1,3 +1,5 @@
+package testers;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.BufferedReader;
@@ -13,6 +15,9 @@ import java.security.NoSuchAlgorithmException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import git.Blob;
+import git.Index;
 
 class JackBTester {
 	@BeforeAll
@@ -127,9 +132,9 @@ class JackBTester {
 	
 	@Test
 	//THIS ISN'T CORRECT
-	void testDeleteBlob() throws NoSuchAlgorithmException, IOException {
-		//deletes junit
-		ind.deleteBlob("junit.txt");
+	void testDeleteBlob() throws NoSuchAlgorithmException, IOException {	
+		
+		//ind.deleteBlob("junit.txt");
 		
 		//check if file doesn't exist
 		File f=new File("objects/f85d527604444aa350aa09dfe93baefbd88f804c");
