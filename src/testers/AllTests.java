@@ -9,7 +9,6 @@ import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
 // Format for JUnit 5 Jupiter Tests 
-// This is actually Junit 4, credit to Emma Miller for telling me to switch and getting my project to work
 // stolen from https://junit.org/junit5/docs/current/user-guide/#junit-platform-suite-engine (Links to an external site.)
 // more docs found  https://www.baeldung.com/junit-5 (Links to an external site.)
 @Suite

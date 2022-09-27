@@ -1,6 +1,6 @@
 package testers;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,10 +16,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import git.Blob;
 import git.Index;
 
-class JackBTester {
+public class IndexTester {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		Path p = Paths.get("junit.txt");
@@ -62,7 +61,7 @@ class JackBTester {
 		File Objectfile=new File("objects");
 		Objectfile.delete();
 	}
-
+	
 	@Test
 	void testIndex() {
 				
@@ -75,30 +74,14 @@ class JackBTester {
 		assertTrue(Files.exists(path));
 	}
 	
-	@Test
-	void testBlob() throws IOException, NoSuchAlgorithmException {		
-		Blob b=new Blob("junit1.txt");
-		
-		File file=new File("objects/f85d527604444aa350aa09dfe93baefbd88f804c");// PUT IN SHA1 STRING
-		file.createNewFile();
-		System.out.println(file.exists());// this is returning false bc file never gets created
-		
-	}
-	
-	@Test
-	void testGetSha() throws NoSuchAlgorithmException, IOException {
-		Blob b=new Blob("junit.txt");
-		assertTrue(b.getSha().equals("f85d527604444aa350aa09dfe93baefbd88f804c"));
-		
-	}
-	
+
 	@Test
 	void testAddBlob() throws IOException, NoSuchAlgorithmException{
 		Index ind=new Index();
 		//add 3 blobs
-		//ind.addBlob("objects/junit.txt");
-	//	ind.addBlob("objects/junit1.txt");
-	//	ind.addBlob("objects/junit2.txt");
+		ind.addBlob("junit.txt");
+		ind.addBlob("junit1.txt");
+		ind.addBlob("junit2.txt");
 		
 		//creates file obj to check each file (they don't)
 		File file_junit=new File("objects/f85d527604444aa350aa09dfe93baefbd88f804c");//PUT IN SHA1 STRING
@@ -110,7 +93,7 @@ class JackBTester {
 		boolean jBoo=false;
 		boolean j1Boo=false;
 		boolean j2Boo=false;
-		try (BufferedReader br = new BufferedReader(new FileReader("ind"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("index"))) {
 		    String line;	 
 		    
 		    while ((line = br.readLine()) != null) {
@@ -154,7 +137,6 @@ class JackBTester {
 		    assertTrue(true);
 		}
 		
-		
-	}
 
+}
 }
